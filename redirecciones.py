@@ -55,7 +55,7 @@ def respuestaPost(url, headers, data):
   if iBarra > 0:
     urlPrincipal = url[0:iBarra]
     dataAdicional = url[iBarra:]
-  puerto = RUTAS_VALIDAS[urlPrincipal](dataAdicional)
+  puerto = RUTAS_VALIDAS[urlPrincipal]
   resultado = requests.post('http://'+str(mi_ip())+':'+str(puerto)+dataAdicional, headers=headers, data=data)
 
   return {
