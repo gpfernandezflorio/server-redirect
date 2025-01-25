@@ -7,7 +7,7 @@ RUTAS_VALIDAS = {
 }
 
 # Puertos del robotutor
-Puerto_inicial_robotutor = 8050 # TODO: ir al buscarlo al archivo info.json del robotutor
+Puerto_inicial_robotutor = 8040 # TODO: ir al buscarlo al archivo info.json del robotutor
 for i in range(Puerto_inicial_robotutor, Puerto_inicial_robotutor+11):
   RUTAS_VALIDAS[f"robotutor_{i}"] = i
 
@@ -39,7 +39,7 @@ def respuestaPut(url, headers, data):
   if iBarra > 0:
     urlPrincipal = url[0:iBarra]
     dataAdicional = url[iBarra:]
-  puerto = RUTAS_VALIDAS[urlPrincipal](dataAdicional)
+  puerto = RUTAS_VALIDAS[urlPrincipal]
   resultado = requests.put('http://'+str(mi_ip())+':'+str(puerto)+dataAdicional, headers=headers, data=data)
 
   return {

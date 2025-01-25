@@ -3,6 +3,7 @@
 import os, io
 import sys
 import threading
+from dotenv import load_dotenv
 
 try: # python 2
     reload(sys)
@@ -139,6 +140,7 @@ def tipo_archivo(filename):
 
 if __name__ == '__main__':
     import argparse
+    load_dotenv()
     parser = argparse.ArgumentParser(description='Server')
     parser.add_argument('-v', dest="v", default=False, type=bool, help='Modo verborrágico.')
     parser.add_argument('-p', dest="PORT", default=8000, type=int, help='Puerto')
